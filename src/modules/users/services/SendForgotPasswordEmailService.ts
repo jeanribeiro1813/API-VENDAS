@@ -1,6 +1,5 @@
 import { AppErrors } from "../../../shared/errors/AppErrors";
 import { getCustomRepository } from "typeorm";
-import Users from "../../typeorm/entities/Users";
 import UsersRepository from "../../typeorm/repository/UsersRepository";
 import UserTokensRepository from "../../typeorm/repository/UserTokensRepository";
 
@@ -22,6 +21,9 @@ export default class SendForgotPasswordEmailService{
     if(!users){
       throw new AppErrors('User does not exits',404)
     }
+
+    console.log(users)
+
 
     const token = await userTokenRepository.generate(users.id)
 

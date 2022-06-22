@@ -1,16 +1,15 @@
 import { celebrate ,Joi, Segments} from 'celebrate';
 import { Router } from 'express';
-import sessioRouter from '../controllers/SessionControllers';
+import forgotControllers from '../controllers/ForgotControllers';
 
 const routes =  Router()
 
-const user = new sessioRouter()
+const user = new forgotControllers()
 
 
-routes.post('/create',celebrate({
+routes.post('/forgot',celebrate({
   [Segments.BODY]:{
     email:Joi.string().required(),
-    password:Joi.string().required()
   }
 }),user.create)
 
