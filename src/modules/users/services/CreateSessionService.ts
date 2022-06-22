@@ -4,7 +4,6 @@ import UsersRepository from "../../typeorm/repository/UsersRepository";
 import { compare } from "bcryptjs";
 import { sign } from 'jsonwebtoken';
 import authConfig from "../../../config/auth";
-import Users from "@modules/typeorm/entities/Users";
 
 interface IRequest{
   email:string,
